@@ -29,14 +29,18 @@ Steps to run locally:
   6) Scroll up and click Install App to Workspace
   7) Once you've allowed it to be installed to your chosen workspace, copy down your Bot User OAuth Access Token.
   8) After copying down your Bot Token, return to the Basic Information tab and scroll down to App Credentials. Click on Show next to the Signing Secret and copy that down as well.
-  9) Next, open up the code hosted in this repo and navigate your terminal to it.
-  10) When you're within the virtual environment (Using an IDE like PyCharm will set this up automatically for you), type into your terminal:
+  9) The last key you'll need to copy down is your VirusTotal API key. To get one, sign up following these instructions: https://support.virustotal.com/hc/en-us/articles/115002100149-API. Once you've signed up, copy the API key down as well. 
+  10) Next, open up the code hosted in this repo and navigate your terminal to it.
+  11) When you're within the virtual environment (Using an IDE like PyCharm will set this up automatically for you), type into your terminal:
         $ export SLACK_TOKEN="paste your bot user oauth access token here"
   9) You can test that the environment has this variable by typing: 'echo $SLACK_TOKEN' into your terminal.
   10) Next, type into your terminal:
         $ export SLACK_EVENTS_TOKEN="paste your Signing Secret here"
   11) You can test that the environment has this variable by typing: 'echo $SLACK_EVENTS_TOKEN' into your terminal.
-  12) Now run the app by typing into your terminal:
+  12) Finally, type into your terminal:
+        $ export APIKEY="paste your VirusTotal API key here"
+  13) You can test that the environment has this variable by typing: 'echo $APIKEY' into your terminal.
+  14) Now run the app by typing into your terminal:
         $ python3 ipbot_main.py
   14) Once you've opened up a port locally on your machine, then return to the Slack API Control Panel and head to the Event Subscriptions tab.
   15) Enable Events and type in your IPv4 address with '/slack/events' tacked on the end of it. To find your public IPv4 address, you can use: https://whatismyipaddress.com/.  
