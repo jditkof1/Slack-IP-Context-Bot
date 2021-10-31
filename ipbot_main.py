@@ -29,11 +29,14 @@ def format_message(channel, ip_address):
 # to this function.
 @slack_events_adapter.on("message")
 def message(payload):
+    if payload.get("event").get("bot_id"):
+        print("Bot detected. Do not do anything.\n") # catching when a bot tries to read its own message
+        return
     # Get the event data from the payload
-    event = payload.get("event", {})
+    event = payload.get("event")
 
     # Get the text from the event that came through
-    text = (event.get("text")).lower()
+    text = event.get("text")
     regexp = "(?:1?\d?\d|2[0-4]\d|25[0-5])(?:.(?:1?\d?\d|2[0-4]\d|25[0-5])){3}(?=$|[^\w.])"
     ip_address = (re.search(regexp, text)).group(0)
 
